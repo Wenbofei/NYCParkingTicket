@@ -1,11 +1,11 @@
 rm(list=ls())
 #输入数据
 #请注意路径
-data2014 = read.csv('~/Desktop/605project/nyc-parking-tickets/Parking_Violations_Issued_-_Fiscal_Year_2014__August_2013___June_2014_.csv')
+data2015 = read.csv('~/Desktop/605project/nyc-parking-tickets/Parking_Violations_Issued_-_Fiscal_Year_2015.csv')
 #列举列名
-colnames(data2014)
+colnames(data2015)
 #统计Registration项
-Registration = data2014[,'Registration.State']
+Registration = data2015[,'Registration.State']
 #统计各个州的违法人数
 #美国各州为:
 #我发现有些州的缩写找不到, 可能是输入错误, 我们直接忽略
@@ -24,11 +24,11 @@ Registration_Freq = Registration_Freq[Registration_Freq[,1] %in% State,]
 Registration_Freq_Ratio = data.frame(cbind(Registration_Freq,log(Registration_Freq[,2]/sum(Registration_Freq[,2])),Registration_Freq[,2]/sum(Registration_Freq[,2])))
 colnames(Registration_Freq_Ratio) = c('state','Freq','logRatio','Ratio')
 #输出频数频率表
-write.csv(Registration_Freq_Ratio,file='~/Desktop/605project/2014_Registration_Freq_Ratio.csv',row.names=FALSE)
+write.csv(Registration_Freq_Ratio,file='~/Desktop/605project/2015_Registration_Freq_Ratio.csv',row.names=FALSE)
 
 #数据可视化
 library(usmap)
 library(ggplot2)
-plot_usmap(data = Registration_Freq_Ratio,values = 'logRatio')+scale_fill_continuous(low='white',high='red',name='log registration ticket ratio of 2014 ticket in NY')+theme(legend.position='right')
-ggsave("~/Desktop/605project/log_registration_ratio_of_2014_ticket_in_NY.png")
+plot_usmap(data = Registration_Freq_Ratio,values = 'logRatio')+scale_fill_continuous(low='white',high='red',name='log registration ticket ratio of 2015 ticket in NY')+theme(legend.position='right')
+ggsave("~/Desktop/605project/log_registration_ratio_of_2015_ticket_in_NY.png")
 

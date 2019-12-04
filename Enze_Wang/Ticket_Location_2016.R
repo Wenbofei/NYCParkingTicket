@@ -1,12 +1,12 @@
 rm(list=ls())
 #输入数据
 #请注意路径
-data2014 = read.csv('~/Desktop/605project/nyc-parking-tickets/Parking_Violations_Issued_-_Fiscal_Year_2014__August_2013___June_2014_.csv')
+data2016 = read.csv('~/Desktop/605project/nyc-parking-tickets/Parking_Violations_Issued_-_Fiscal_Year_2016.csv')
 #列举列名
-colnames(data2014)
+colnames(data2016)
 #我们想做纽约市的可视化, 对Street Name先进行统计, 把出现次数比较多街道的找出来
 
-Location = data.frame(data2014[,c('Street.Name')])
+Location = data.frame(data2016[,c('Street.Name')])
 Location_Freq = data.frame(table(Location))
 #按降序排序
 Location_Freq = Location_Freq[order(Location_Freq[,2],decreasing = TRUE),]
@@ -35,8 +35,8 @@ for(i in 1:N){
 colnames(OurLocation) = c('Location','Freq','lng','lat','radius')
 #使用geocode_OSM搜索地址很慢, 不建议给太多地址搜索经纬度, 在我的电脑上搜索10个地址用时大概1分钟, 可能用并行系统会快.
 OurLocation=na.omit(OurLocation)
-write.csv(OurLocation,file='~/Desktop/605project/2014_OurLocation',row.names=FALSE)
-
+OurLocation=na.omit(OurLocation)
+write.csv(OurLocation,file='~/Desktop/605project/2016_OurLocation',row.names=FALSE)
 qpal <- colorQuantile("YlOrRd", OurLocation$radius, n = 4)
 webshot::install_phantomjs()
 a=leaflet(OurLocation) %>% 
@@ -45,9 +45,9 @@ a=leaflet(OurLocation) %>%
   setView(-73.9, 40.71, zoom = 11) %>%
   addProviderTiles("CartoDB.Positron")%>%
   addCircles(lng = OurLocation$lng, lat = OurLocation$lat , weight = 1,
-           radius = OurLocation$radius, color = ~qpal(radius))
+             radius = OurLocation$radius, color = ~qpal(radius))
 #把地图保存为图片
-mapshot(a, file =  "~/Desktop/605project/2014_Location.png")
+mapshot(a, file =  "~/Desktop/605project/2016_Location.png")
 
 leaflet(OurLocation) %>% 
   addTiles() %>%
