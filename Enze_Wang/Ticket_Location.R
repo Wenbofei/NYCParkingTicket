@@ -35,7 +35,7 @@ for(i in 1:N){
 colnames(OurLocation) = c('Location','Freq','lng','lat','radius')
 #使用geocode_OSM搜索地址很慢, 不建议给太多地址搜索经纬度, 在我的电脑上搜索10个地址用时大概1分钟, 可能用并行系统会快.
 OurLocation=na.omit(OurLocation)
-write.csv(OurLocation,file='~/Desktop/605project/2014_OurLocation',row.names=FALSE)
+write.csv(OurLocation,file='~/Desktop/605project/2014_OurLocation.csv',row.names=FALSE)
 
 qpal <- colorQuantile("YlOrRd", OurLocation$radius, n = 4)
 webshot::install_phantomjs()
