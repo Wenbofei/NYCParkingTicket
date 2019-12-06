@@ -1,0 +1,22 @@
+# Before running this with "condor_submit myscript.sub", the
+# directories log, error, and output must exist.
+
+universe = vanilla
+log = submit.log
+error = submit.err
+
+executable = ./make_table.sh
+
+arguments = $(num)
+output = submit.out
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/R361.tar.gz, make_table.R,$(num)
+
+request_cpus = 1
+request_memory = 1GB
+request_disk = 1GB
+
+queue num from list.txt

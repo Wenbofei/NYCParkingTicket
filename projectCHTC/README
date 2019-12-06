@@ -1,0 +1,51 @@
+This code use CHTC for data preparation for our project
+
+Step 1 Download nyc-parking-tickets.tar and put the .tar in projectCHTC
+
+Step 2
+
+If you want to get the data of year 2014, run 
+
+submit.sh
+|
+results.sh
+
+If you want to get the data of year 2015, run 
+
+submit.sh
+|
+results2.sh
+
+If you want to get the data of year 2016, run 
+
+submit.sh
+|
+results3.sh
+
+
+If you want to get the data of year 2017, run 
+
+submit.sh
+|
+results4.sh
+
+Step 3
+
+All need data will be included in the 
+
+2014results
+
+2015results
+
+2016results
+
+2017results
+
+They are very small
+
+
+
+
+
+
+
