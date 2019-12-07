@@ -16,7 +16,7 @@ library(leaflet)
 library(tmaptools)
 library(mapview)
 #如果我们可视化前10个地址
-N=2000
+N=1000
 OurLocation = Location_Freq[1:N,]
 for(i in 1:N){
   #提取一行地址
