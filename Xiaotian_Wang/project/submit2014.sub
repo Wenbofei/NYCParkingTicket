@@ -1,0 +1,19 @@
+verse = vanilla
+log = log/test-chtc_$(Cluster).log
+error = error/test-chtc_$(Cluster)_$(Process).err
+
+
+executable = ./myscript.sh
+
+arguments = $(filename).csv
+output = output/test_$(Cluster)_$(Process).out
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/R361.tar.gz, 1.R, data/$(filename).csv
+request_cpus = 1
+request_memory = 2GB
+request_disk = 8GB
+
+queue filename from namelist2014 
+

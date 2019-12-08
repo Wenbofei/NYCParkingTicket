@@ -1,0 +1,60 @@
+First, put the data file in the "data/" directory and then split it.
+
+To split data, we use
+
+---
+split -d -l 50000 FILENAME1 "201?data"
+---
+
+Here, the "201?" is the year of the data.
+
+To get the namelist, we use 
+
+---
+ls > namelist201?
+---
+
+and then delete the non-relevant lines artificially.
+
+Now, run the "rename.sh" which is 
+
+---
+#!/bin/bash
+
+head0=$(head -1 2017data00)
+
+for i in $(cat namelist2017)
+do
+if [ "$i"x != "data00"x ]
+then
+sed -i "1i$head0" $i
+fi
+done
+
+
+for i in $(cat namelist2017)
+do
+mv $i $i.csv
+done
+---
+
+The "2017" here can be adjusted to be "201?" which is the year of the data.
+
+To merge the results, we first move all *counts to a same directory by
+
+---
+mkdir results
+mv *counts results/
+---
+
+,and then run
+
+---
+paste -d, counts* > result201?.csv
+---
+
+to get the merged result of the year.
+
+Now, we can use other tools (sucb as R studio) to deal with the merged result.
+
+
