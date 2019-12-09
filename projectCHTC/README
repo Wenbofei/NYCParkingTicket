@@ -3,31 +3,13 @@ This code use CHTC for data preparation for our project
 Step 1 Download nyc-parking-tickets.tar and put the .tar in projectCHTC
 
 Step 2
+run rename.sh
 
-If you want to get the data of year 2014, run 
+for 2014: run split_2014.sh, and then condor_submit submit.sub, after computation in CHTC finished, run results.sh.
+for 2015: run split_2015.sh, and then condor_submit submit.sub, after computation in CHTC finished, run results2.sh.
+for 2016: run split_2016.sh, and then condor_submit submit.sub, after computation in CHTC finished, run results3.sh.
+for 2017: run split_2017.sh, and then condor_submit submit.sub, after computation in CHTC finished, run results4.sh.
 
-submit.sh
-|
-results.sh
-
-If you want to get the data of year 2015, run 
-
-submit.sh
-|
-results2.sh
-
-If you want to get the data of year 2016, run 
-
-submit.sh
-|
-results3.sh
-
-
-If you want to get the data of year 2017, run 
-
-submit.sh
-|
-results4.sh
 
 Step 3
 
