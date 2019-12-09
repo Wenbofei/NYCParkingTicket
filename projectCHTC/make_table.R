@@ -45,20 +45,20 @@ Vehicle_Type_list <- c("SUBN","4DSD","VAN","DELV","SDN","2DSD","PICK","REFG","TR
 #Make and output Vehicle_Make vs County table
 data.Veh.Make.sub <- data[which(data$`Vehicle.Make` %in% Vehicle_Make_list),]
 Veh_Make_County <- table(data.Veh.Make.sub[,c("Vehicle.Make","Violation.County")])
-write.csv(Veh_Make_County,paste0("Veh_Make_County",b, ".csv"), row.names=FALSE)
+write.csv(Veh_Make_County,paste0("Veh_Make_County",b, ".csv"), row.names=T)
 
 #Make and output Vehicle_Type vs County table
 data.Veh.Type.sub <- data[which(data$`Vehicle.Body.Type` %in% Vehicle_Type_list),]
 Veh_Type_County <- table(data.Veh.Type.sub[,c("Vehicle.Body.Type","Violation.County")])
-write.csv(Veh_Type_County,paste0("Veh_Type_County",b, ".csv"), row.names=FALSE)
+write.csv(Veh_Type_County,paste0("Veh_Type_County",b, ".csv"), row.names=T)
 
 #Make Street Name table and out put
 Street_table <- table(data$`Street.Name`)
-write.csv(Street_table,paste0("Street_table",b, ".csv"), row.names=FALSE)
+write.csv(Street_table,paste0("Street_table",b, ".csv"), row.names=T)
 
 
 #Make and output Registration State table
 Reg_table <- table(data$`Registration.State`)
-write.csv(Reg_table,paste0("Reg_table",b, ".csv"), row.names=FALSE)
+write.csv(Reg_table,paste0("Reg_table",b, ".csv"), row.names=T)
 
 
