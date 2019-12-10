@@ -1,0 +1,24 @@
+This code use CHTC for data preparation for our project
+
+Submit dag file final.dag then we can get eleven files, which are
+
+reg_all2014.csv
+reg_all2015.csv
+reg_all2016.csv
+reg_all2017.csv
+
+street_all2014.csv
+street_all2015.csv
+street_all2016.csv
+street_all2017.csv
+
+type_all2014.csv
+type_all2015.csv
+type_all2016.csv
+type_all2017.csv
+
+brand_all2014.csv
+brand_all2015.csv
+brand_all2016.csv
+brand_all2017.csv
+

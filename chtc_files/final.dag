@@ -1,0 +1,27 @@
+#This "final.dag" script is a Directed Acyclic Graph Manager (GAGMan) which is 
+#specifies the parallel final project   
+#
+# (pre)  preload.sh(include downloading)
+#              |
+#              V
+# (job 1)  submit.sub
+#            / | \
+#   51*4 parallel run of make_table.sh
+#            \ | /
+#              V
+# (post 1) pre_merge.sh
+#              |
+#              V
+# (job 2)  merge_table.sub
+#              |
+#              V
+# (post 2) post_clean.sh
+
+job 1 submit.sub
+job 2 merge_table.sub
+
+script pre 1 preload.sh
+script post 1 pre_merge.sh
+script post 2 post_clean.sh
+
+parent 1 child 2
