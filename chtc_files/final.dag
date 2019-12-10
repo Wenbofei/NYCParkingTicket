@@ -4,7 +4,7 @@
 # (pre)  preload.sh(include downloading)
 #              |
 #              V
-# (job 1)  submit.sub
+# (job 1)  make_table.sub
 #            / | \
 #   51*4 parallel run of make_table.sh
 #            \ | /
@@ -17,7 +17,7 @@
 #              V
 # (post 2) post_clean.sh
 
-job 1 submit.sub
+job 1 make_table.sub
 job 2 merge_table.sub
 
 script pre 1 preload.sh
