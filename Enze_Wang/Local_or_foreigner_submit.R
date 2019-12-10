@@ -2,6 +2,7 @@ rm(list=ls())
 #setwd('~/Desktop/605project/')
 
 
+
 State = c("AK","AL","AR","AZ","CA","CO","CT",
           "DC","DE","FL","GA","HI","IA","ID",
           "IL","IN","KS","KY","LA","MA","MD","ME","MI", 

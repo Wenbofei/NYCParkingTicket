@@ -2,6 +2,7 @@ rm(list=ls())
 #setwd('~/Desktop/605project')
 Location_Freq = read.csv('street_all2017.csv',header = T)
 
+
 Location_Freq = Location_Freq[order(Location_Freq[,2],decreasing = TRUE),]
 
 library(ggplot2)
